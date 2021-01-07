@@ -8,13 +8,20 @@ import { PlayerControls } from "./PlayerControls";
  */
 export interface GameProps {
     game: BlackjackGameState;
+    isFrozen: boolean;
+    hit: () => void;
+    stand: () => void;
 }
 
 export function Game(props: GameProps) {
     return (
         <div>
             <CardTable game={props.game} />
-            <PlayerControls />
+            <PlayerControls
+                disabled={props.isFrozen}
+                hit={props.hit}
+                stand={props.stand}
+            />
         </div>
     );
 }
