@@ -1,10 +1,6 @@
 
 export interface CardState {
-    /** Value is an identifier for the type of card, not necessarily equivalent
-     *   to the number of points provided by that card.  eg. Aces have a value
-     *   of 1, but can sometimes give a point value of 11.
-     */
-    readonly value: number;
+    readonly value: string;
     readonly imageUrl: string;
 }
 
@@ -17,3 +13,14 @@ export interface BlackjackGameState {
     readonly house: PlayerState;
     readonly player: PlayerState;
 }
+
+export const EMPTY_STATE: BlackjackGameState = {
+    house: {
+        points: 0,
+        cards: [],
+    },
+    player: {
+        points: 0,
+        cards: [],
+    },
+};
