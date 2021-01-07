@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Dealer } from './controller/Dealer';
+import { insertCards } from './controller/insertCards';
 import { BlackjackGameState, EMPTY_STATE } from './model/BlackjackGameState';
 import { Game } from './view/Game';
 
@@ -22,7 +23,11 @@ class App extends React.PureComponent<AppProps, AppState> {
     public componentDidMount() {
         this.dealer.shuffle().then(() => {
             this.dealer.draw(4).then(cards => {
-                console.log(cards);
+                const house = insertCards(this.state.game.house, cards.slice(0, 2));
+                const player = insertCards(this.state.game.player, cards.slice(2));
+                this.setState({
+                    game: { house, player },
+                });
             });
         });
     }
