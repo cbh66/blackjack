@@ -1,0 +1,14 @@
+.card-area {
+    min-height: 100px;
+    min-width: 400px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.card {
+    height: 90px;
+    width: 75px;
+    margin: 10px;
+}

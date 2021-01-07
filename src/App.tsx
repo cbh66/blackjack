@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Game } from './view/Game';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const gameOver = false;
+    if (gameOver) {
+        return <div>Game Over</div>; // TODO: victory or defeat screen
+    }
+    return (
+        <div className="App">
+            <div className="app-content">
+                <Game />
+            </div>
+        </div>
+    );
 }
 
 export default App;
