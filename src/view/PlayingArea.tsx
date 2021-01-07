@@ -1,5 +1,6 @@
 import "./PlayingArea.css";
 import { CardArea } from "./CardArea";
+import { CardState } from "../model/BlackjackGameState";
 
 /**
  * Displays the playing area for a single player, which includes
@@ -8,14 +9,17 @@ import { CardArea } from "./CardArea";
  */
 
 export interface PlayingAreaProps {
-
+    name: string;
+    points: number;
+    cards: ReadonlyArray<CardState>;
 }
 
 export function PlayingArea(props: PlayingAreaProps) {
     return (
         <div className="playing-area">
-            <div className="points">Points: 0</div>
-            <CardArea />
+            <div className="name">{props.name}</div>
+            <div className="points">Points: {props.points}</div>
+            <CardArea cards={props.cards} />
         </div>
     );
 }

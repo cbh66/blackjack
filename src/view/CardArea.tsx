@@ -1,3 +1,4 @@
+import { CardState } from "../model/BlackjackGameState";
 import "./CardArea.css";
 
 /**
@@ -5,24 +6,24 @@ import "./CardArea.css";
  */
 
 export interface CardAreaProps {
-
+    cards: ReadonlyArray<CardState>;
 }
 
 export function CardArea(props: CardAreaProps) {
     return (
         <div className="card-area">
-            {[1, 2, 3].map(num => <Card num={num} />)}
+            {props.cards.map(card => <Card imgUrl={card.imageUrl} />)}
         </div>
     );
 }
 
 
 interface CardProps {
-    num: number;
+    imgUrl: string;
 }
 
 function Card(props: CardProps) {
     return (
-        <div className="card">Card {props.num}</div>
+        <img className="card" src={props.imgUrl} />
     )
 }
