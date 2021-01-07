@@ -103,9 +103,13 @@ interface GameOverProps {
 
 function GameOverMessage(props: GameOverProps) {
     return (
-        <div>
-            {props.children}
-            <button onClick={props.onReset}>Start Over</button>
+        <div className="game-over">
+            <div className="game-over-message">
+                {props.children}
+            </div>
+            <div className="game-over-controls">
+                <button onClick={props.onReset}>Start Over</button>
+            </div>
         </div>
     );
 }

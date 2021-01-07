@@ -1,3 +1,4 @@
+import "./Overlay.css";
 import React from "react";
 
 export interface OverlayProps {
@@ -6,8 +7,10 @@ export interface OverlayProps {
 
 export function Overlay(props: OverlayProps) {
     return (
-        <div className="overlay">
-            {props.children}
+        <div className="overlay-viewport">
+            <div className="overlay-box">
+                {props.children}
+            </div>
         </div>
     );
 }
